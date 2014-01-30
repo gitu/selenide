@@ -46,7 +46,7 @@ public class ErrorMessages {
   private static String formatScreenShotPath(String screenshot) {
     if (Configuration.reportsUrl != null) {
       String screenshotRelativePath = screenshot.substring(System.getProperty("user.dir").length() + 1);
-      String screenshotUrl = Configuration.reportsUrl + screenshotRelativePath;
+      String screenshotUrl = Configuration.reportsUrl + screenshotRelativePath.replace("\\","/");
       LOG.info("Replaced screenshot file path '" + screenshot + "' by public CI URL '" + screenshotUrl + "'");
       return "\nScreenshot: " + screenshotUrl;
     }
